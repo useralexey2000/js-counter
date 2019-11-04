@@ -12,22 +12,26 @@ window.onload = function(){
             console.log("not a TD");
             return;
         }
-        var cur = parseInt(tgt.innerText);
-        var ctr = parseInt(tgt.getAttribute("counter"));
+        var tbl = document.getElementById('main-table-ix');
+        var ctr = tbl.getAttribute("counter");
         
-        if (isNaN(ctr)) {
+        if(ctr == null) {
+            tbl.setAttribute("counter", 0);
             ctr = 0;
         }
-        tgt.setAttribute("counter", ctr + 1);
+        ctr = parseInt(ctr);
+        var cur = parseInt(tgt.innerText);
+        
+        tbl.setAttribute("counter", ctr + 1);
         tgt.innerText = cur + ctr+1;
     }
 
     function resetCount(event) {
         var tbl = document.getElementById('main-table-ix');
+        tbl.removeAttribute("counter");
         var tds = tbl.getElementsByTagName("td");
         for(var i =0; i < tds.length; i++) {
             tds[i].innerText = 0;
-            tds[i].removeAttribute("counter");
         }
     }
 }
