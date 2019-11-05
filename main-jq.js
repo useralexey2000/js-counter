@@ -1,8 +1,7 @@
 $(document).ready(function(){
+  var tbl = $("#main-table-ix");
 
     $("td").click(function(event){
-
-      var tbl = $("#main-table-ix");
       var  ctr = tbl.attr("counter");
 
       if (ctr == null) {
