@@ -1,21 +1,19 @@
 $(document).ready(function(){
 
-    $("#main-table-ix").click(function(event){
-        var tgt = event.target;
-        if(tgt.tagName != "TD") {
-            return;
-        }
-        var  ctr = $(this).attr("counter");
+    $("td").click(function(event){
 
-        if(ctr == null){
-          $(this).attr("counter", 0);
-          ctr = 0;
-        }
-        ctr = parseInt(ctr);
-        var cur = parseInt(tgt.innerText);
+      var tbl = $("#main-table-ix");
+      var  ctr = tbl.attr("counter");
 
-        $(this).attr("counter", ctr + 1);
-        tgt.innerText = cur + ctr+1;     
+      if (ctr == null) {
+        tbl.attr("counter", 0);
+        ctr = 0;
+      }
+      ctr = parseInt(ctr);
+      var cur = parseInt($(this).text());
+
+      tbl.attr("counter", ctr + 1);
+      $(this).text(cur + ctr+1);
     });
 
     $("#reset-count").click(function(){
